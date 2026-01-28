@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أحمد محمد | مصور فوتوغرافي محترف</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <style>
+        /* ===== CSS Reset & Global Styles ===== */
+        :root {
+            --primary: #0A0A0A;
+            --secondary: #1E1E1E;
+            --accent: #FF6B6B;
+            --accent-light: #FF8E8E;
+            --accent-dark: #D64545;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --text-muted: #777777;
+            --card-bg: #1A1A1A;
+            --card-border: #2D2D2D;
+            --gradient: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%);
+            --gradient-dark: linear-gradient(135deg, #D64545 0%, #2DA8A0 100%);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Almarai', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 3.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 0;
+            width: 60%;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+
+        h3 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Almarai', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-dark);
+            z-index: -1;
+            transition: var(--transition);
+            opacity: 0;
+        }
+
+        .btn:hover:before {
+            opacity: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:before {
+            background: var(--gradient);
+        }
+
+        .btn-outline:hover {
+            color: white;
+        }
+
+        /* ===== Header & Navigation ===== */
+        header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header.scrolled {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: var(--shadow);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Almarai', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 2rem;
+        }
+
+        .logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a:hover:after,
+        .nav-links a.active:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-bg:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%) brightness(0.7);
+        }
+
+        .hero-content {
+            max-width: 700px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        /* ===== About Section ===== */
+        .about {
+            background-color: var(--secondary);
+            position: relative;
+        }
+
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M500,97C126.7,96.3,0.8,19.8,0,0v100l1000,0V1C1000,19.4,873.3,97.8,500,97z" fill="%230a0a0a"/></svg>') top center no-repeat;
+            background-size: 100% 100px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-img {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: var(--transition);
+        }
+
+        .about-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
+        .stat h4 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== Portfolio Section ===== */
+        .portfolio {
+            position: relative;
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: transparent;
+            border: 2px solid var(--card-border);
+            color: var(--text-secondary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Almarai', sans-serif;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-light);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 400px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.1) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        /* ===== Services Section ===== */
+        .services {
+            background-color: var(--secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            border: 1px solid var(--card-border);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 420px;
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            z-index: -1;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover:before {
+            opacity: 0.1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow);
+        }
+        
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: var(--transition);
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .service-icon i {
+            font-size: 2.5rem;
+            z-index: 2;
+        }
+        
+        .service-icon:after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            top: -10px;
+            right: -10px;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .service-card:hover .service-icon:after {
+            animation: rotate 10s linear infinite;
+            border-color: var(--accent);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        /* ===== Testimonials Section - تم التعديل لتصحيح المشكلتين ===== */
+        .testimonials {
+            position: relative;
+        }
+        
+        .testimonials .section-header h2 {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .testimonials .section-header h2:after {
+            right: 50%;
+            transform: translateX(50%);
+            width: 200px;
+        }
+
+        .testimonials-slider {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .testimonial-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            margin: 2rem;
+            border: 1px solid var(--card-border);
+            position: relative;
+            min-height: 380px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: var(--transition);
+            box-shadow: var(--shadow-light);
+        }
+
+        .testimonial-item:hover {
+            transform: perspective(1000px) rotateY(-5deg);
+            box-shadow: var(--shadow);
+        }
+
+        .testimonial-item:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 6rem;
+            font-family: serif;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-item p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            padding-top: 1.5rem;
+            text-align: justify;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            hyphens: auto;
+            word-break: break-word;
+            display: block;
+            max-height: none;
+            overflow: visible;
+            -webkit-line-clamp: unset;
+            -webkit-box-orient: unset;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .client-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-left: 2rem;
+            border: 3px solid var(--accent);
+            flex-shrink: 0;
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-details h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .client-details p {
+            margin-bottom: 0;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: var(--card-border);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--gradient);
+        }
+
+        /* ===== Contact Section ===== */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-left: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius);
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: var(--secondary);
+            padding: 5rem 0 2rem;
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-logo {
+            font-family: 'Almarai', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-right: 10px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .newsletter-form button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gradient-dark);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== Modal ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+            animation: zoomIn 0.4s ease;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 3rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background: var(--accent);
+            transform: rotate(90deg);
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            
+            h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            section {
+                padding: 4rem 0;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .about-img {
+                order: -1;
+                transform: none;
+            }
+            
+            .about-img:hover {
+                transform: none;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 300px;
+                height: calc(100vh - 80px);
+                background: var(--card-bg);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3rem 2rem;
+                transition: var(--transition);
+                border-left: 1px solid var(--card-border);
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                margin-bottom: 1.5rem;
+            }
+            
+            .testimonial-item {
+                padding: 2.5rem;
+                margin: 1.5rem;
+                min-height: auto;
+                transform: none !important;
+            }
+            
+            .testimonial-item:hover {
+                transform: none !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .testimonials .section-header h2:after {
+                width: 150px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-item {
+                padding: 2rem;
+                margin: 1rem;
+                min-height: auto;
+            }
+            
+            .testimonial-item:before {
+                font-size: 5rem;
+                top: 15px;
+                right: 25px;
+            }
+            
+            .testimonial-item p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+            
+            .modal-img {
+                height: 300px;
+            }
+            
+            .service-card {
+                min-height: 380px;
+                padding: 2.5rem 2rem;
+            }
+            
+            .client-img {
+                width: 70px;
+                height: 70px;
+                margin-left: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .testimonials .section-header h2:after {
+                width: 120px;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card {
+                min-height: auto;
+                padding: 2rem 1.5rem;
+            }
+            
+            .service-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+            
+            .service-icon i {
+                font-size: 2rem;
+            }
+            
+            .testimonial-item {
+                padding: 1.8rem;
+                margin: 0.8rem;
+                min-height: auto;
+            }
+            
+            .testimonial-item:before {
+                font-size: 4rem;
+                top: 10px;
+                right: 20px;
+            }
+            
+            .testimonial-item p {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+            
+            .client-info {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .client-img {
+                margin-left: 0;
+                margin-bottom: 1rem;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .client-details h4 {
+                font-size: 1.2rem;
+            }
+            
+            .client-details p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo"><i class="fas fa-camera"></i> أحمد<span>محمد</span></a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home" class="active">الرئيسية</a></li>
+                    <li><a href="#about">نبذة عني</a></li>
+                    <li><a href="#portfolio">معرض الأعمال</a></li>
+                    <li><a href="#services">خدماتي</a></li>
+                    <li><a href="#testimonials">آراء العملاء</a></li>
+                    <li><a href="#contact">تواصل معي</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80" alt="مصور فوتوغرافي">
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>أحمد محمد<br>مصور فوتوغرافي محترف</h1>
+                <p>بشوف الجمال في ابسط التفاصيل وبسجل اللحظات الغالية بتقنية عالية وذوق فني راقي وعندي خبرة اكتر من عشر سنين في مجال التصوير الفوتوغرافي.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">استعرض أعمالي</a>
+                    <a href="#contact" class="btn btn-outline">احجز جلسة تصوير</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>نبذة عني</h2>
+                <p>أنا أحمد محمد، مصور فوتوغرافي محترف مختص في تصوير الأعراس، المناسبات، البورتريه، والفعاليات. هدفي هو تحويل اللحظات العادية إلى ذكريات خالدة.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>رحلة فنية مع العدسة</h3>
+                    <p>بدأت مشواري في التصوير من اكتر من عشر سنين ومع الوقت كبرت عندي حكاية حب التصوير وبقيت بشوف الجمال في ابسط التفاصيل واتخصصت في تصوير الافراح والمناسبات ومقتنع ان كل لحظة لازم تتسجل.</p>
+                    <p>بشتغل باحدث معدات وتقنيات تصوير عشان اطلع شغل مختلف ومميز وباهتم باصغر التفاصيل وبحرص ان كل عميل يعيش تجربة تصوير فريدة ومختلفة.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h4>10+</h4>
+                            <p>سنوات خبرة</p>
+                        </div>
+                        <div class="stat">
+                            <h4>850+</h4>
+                            <p>عميل مبسوط</p>
+                        </div>
+                        <div class="stat">
+                            <h4>3K+</h4>
+                            <p>لقطة جامده</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="أحمد محمد">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>معرض الأعمال</h2>
+                <p>استكشف مجموعة مختارة من أفضل أعمالي في مختلف مجالات التصوير الفوتوغرافي</p>
+            </div>
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="wedding">الأعراس</button>
+                <button class="filter-btn" data-filter="portrait">البورتريه</button>
+                <button class="filter-btn" data-filter="event">الفعاليات</button>
+                <button class="filter-btn" data-filter="commercial">التجاري</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="تصوير عرس">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">الأعراس</span>
+                        <h3>لحظة الزفاف</h3>
+                        <p>تصوير احترافي لحفل زفاف في الهواء الطلق</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تصوير شخصي">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">البورتريه</span>
+                        <h3>جلسة شخصية</h3>
+                        <p>تصوير احترافي باستخدام إضاءة طبيعية</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="event">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تصوير فعالية">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">الفعاليات</span>
+                        <h3>حفل موسيقي</h3>
+                        <p>تصوير حي لفعالية موسيقية على المسرح</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="commercial">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تصوير منتجات">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">التجاري</span>
+                        <h3>تصوير المنتجات</h3>
+                        <p>تصوير إبداعي لمنتجات بأسلوب احترافي</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="wedding">
+                    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="تفاصيل العروس">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">الأعراس</span>
+                        <h3>تفاصيل العروس</h3>
+                        <p>تصوير دقيق للتفاصيل في يوم الزفاف</p>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="portrait">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="تصوير فني">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-category">البورتريه</span>
+                        <h3>بورتريه فني</h3>
+                        <p>تصوير إبداعي باستخدام تقنيات إضاءة متقدمة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section - تم التصحيح -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>خدمات التصوير</h2>
+                <p>أقدم مجموعة متنوعة من خدمات التصوير الفوتوغرافي الاحترافية التي تلبي جميع احتياجاتك</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3>تصوير الأعراس</h3>
+                    <p>توثيق كامل ليوم زفافك بجميع تفاصيله الجميلة، مع الاهتمام باللحظات العفوية والمشاعر الحقيقية.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>التصوير الشخصي</h3>
+                    <p>جلسات تصوير احترافية للملامح في استوديو مجهز أو مواقع خارجية، مع استخدام تقنيات إضاءة متقدمة.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>تصوير الفعاليات</h3>
+                    <p>توثيق كامل لفعالياتك الخاصة والعامة، حفلات، مؤتمرات، وورش عمل مع التركيز على التفاصيل المميزة.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>التصوير التجاري</h3>
+                    <p>تصوير منتجات عالية الجودة للتسويق والإعلان، مع إبراز ميزات المنتج وجودته لجذب العملاء.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>التصوير الفني</h3>
+                    <p>إنشاء أعمال فنية إبداعية باستخدام التصوير الفوتوغرافي، مع دمج العناصر الفنية والتقنيات المبتكرة.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>تصوير الفيديو</h3>
+                    <p>إنتاج أفكار فيديو احترافية للمناسبات والفعاليات، مع مونتاج احترافي وإضافة مؤثرات بصرية وجرافيك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section - تم التصحيح -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>آراء العملاء</h2>
+                <p>ما يقوله عملائي عن تجربتهم مع خدمات التصوير التي أقدمها</p>
+            </div>
+            <div class="testimonials-slider swiper">
+                <div class="swiper-wrapper">
+                    <div class="testimonial-item swiper-slide">
+                        <p>أحمد مصور مبدع ومحترف بكل معنى الكلمة. قدر يوثق فرحي بأروع الصور الي خلتني أعيش للحظات كل ما اشوفهم ودقته في الالتزام بالمواعيد خلت التجربة ممتعة جداً !</p>
+                        <div class="client-info">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="سارة الخالد">
+                            </div>
+                            <div class="client-details">
+                                <h4>سارة خالد</h4>
+                                <p>عروسة - نوفمبر 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item swiper-slide">
+                        <p>تعاملت مع أحمد في تصوير منتجات متجري الإلكتروني، وكانت النتائج جامده بجد بكل المقاييس الصور ساعدت في زيادة المبيعات بشكل ملحوظ.!</p>
+                        <div class="client-info">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="خالد الرشيد">
+                            </div>
+                            <div class="client-details">
+                                <h4>خالد عبد اللطيف</h4>
+                                <p>رجل أعمال - يناير 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item swiper-slide">
+                        <p>جلسة التصوير الشخصية مع أحمد كانت تجربة تحفة ومميزة. قدر ياخد ملامحي بشكل طبيعي وجميل، بعيداً عن الصور المصطنعة. الصور فاقت توقعاتي بمراحل!</p>
+                        <div class="client-info">
+                            <div class="client-img">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" alt="نورة الفهد">
+                            </div>
+                            <div class="client-details">
+                                <h4>نورة محمد</h4>
+                                <p> موضة - مارس 2023</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>تواصل معي</h2>
+                <p>هل تبحث عن مصور محترف لتوثيق مناسبتك؟ تواصل معي الآن لنتناقش في تفاصيل مشروعك</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>لنتواصل معاً</h3>
+                    <p>أنا هنا لمساعدتك في توثيق لحظاتك الثمينة وتحويلها إلى ذكريات خالدة. تواصل معي لنتناقش في تفاصيل مشروعك.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>العنوان</h4>
+                                <p>مصر- المنصورة</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>الهاتف</h4>
+                                <p>01027714970</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>البريد الإلكتروني</h4>
+                                <p>Ahmed.mohamed@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="الاسم الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="الموضوع" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="6" placeholder="الرسالة" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">إرسال الرسالة</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">أحمد<span>محمد</span></div>
+                    <p>مصور فوتوغرافي محترف متخصص في توثيق اللحظات الثمينة بلمسة إبداعية وجودة عالية. ألتقط الذكريات لتبقى خالدة.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">نبذة عني</a></li>
+                        <li><a href="#portfolio">معرض الأعمال</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#testimonials">آراء العملاء</a></li>
+                        <li><a href="#contact">تواصل معي</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>النشرة البريدية</h4>
+                    <p>اشترك في نشرتنا البريدية لتكون أول من يعرف عن عروضي الخاصة وأعمالي الجديدة.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 ابراهيم مصطفي. جميع الحقوق محفوظة. | تم التصميم والتطوير بكل ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <img class="modal-img" id="modalImage" src="" alt="صورة معرض">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Portfolio Filtering - FIXED VERSION
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        // Force reflow for animation
+                        void item.offsetWidth;
+                        item.classList.add('visible');
+                    } else {
+                        item.classList.remove('visible');
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 400);
+                    }
+                });
+            });
+        });
+        
+        // Portfolio Modal
+        const modal = document.getElementById('portfolioModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalClose = document.getElementById('modalClose');
+        
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').getAttribute('src');
+                const title = item.querySelector('h3').textContent;
+                const description = item.querySelector('p').textContent;
+                
+                modalImage.setAttribute('src', imgSrc);
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        modalClose.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Initialize Swiper Testimonial Slider - مع إعدادات محسنة
+        const swiper = new Swiper('.testimonials-slider', {
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            effect: 'slide',
+            speed: 800,
+            grabCursor: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                },
+                640: {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 1,
+                    spaceBetween: 40,
+                },
+            },
+        });
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            // Here we'll show a success message
+            const originalButtonText = contactForm.querySelector('.btn').textContent;
+            const button = contactForm.querySelector('.btn');
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+            button.disabled = true;
+            
+            setTimeout(() => {
+                // Simulate successful submission
+                button.innerHTML = '<i class="fas fa-check"></i> تم الإرسال بنجاح!';
+                button.style.background = '#4CAF50';
+                
+                setTimeout(() => {
+                    button.textContent = originalButtonText;
+                    button.innerHTML = originalButtonText;
+                    button.disabled = false;
+                    button.style.background = '';
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+        
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            const button = newsletterForm.querySelector('button');
+            const originalButtonHTML = button.innerHTML;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            
+            setTimeout(() => {
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = originalButtonHTML;
+                    newsletterForm.reset();
+                    // Show a subtle notification (could be enhanced with a toast)
+                    alert(`شكراً لاشتراكك في النشرة البريدية!
+سيصلك آخر أخباري وعروضي على ${email}`);
+                }, 1000);
+            }, 1000);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // FIXED: Fade-in animation on scroll - Simplified version
+        const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .stat');
+        
+        // First, make sure all elements are visible initially
+        fadeElements.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        });
+        
+        // Then add the fade-in class for the animation
+        setTimeout(() => {
+            fadeElements.forEach(el => {
+                el.classList.add('fade-in');
+                el.classList.add('visible');
+            });
+        }, 100);
+        
+        // Simple scroll-based animation without IntersectionObserver issues
+        const simpleFadeOnScroll = () => {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) * 1.2 &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+                
+                if (isVisible) {
+                    el.classList.add('visible');
+                }
+            });
+        };
+        
+        // Run on load and scroll
+        window.addEventListener('load', () => {
+            simpleFadeOnScroll();
+            // Force show all service cards and portfolio items
+            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
+                el.classList.add('visible');
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+        
+        window.addEventListener('scroll', simpleFadeOnScroll);
+        
+        // Ensure images are loaded before showing content
+        window.addEventListener('load', () => {
+            // Make sure all content is visible
+            setTimeout(() => {
+                document.querySelectorAll('.service-card, .portfolio-item, .stat').forEach(el => {
+                    el.classList.add('visible');
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 500);
+        });
+        
+        // Fallback: If content disappears, this will restore it
+        setInterval(() => {
+            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
+                if (el.style.opacity === '0' || getComputedStyle(el).opacity === '0') {
+                    el.style.opacity = '1';
+                    el.classList.add('visible');
+                }
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
