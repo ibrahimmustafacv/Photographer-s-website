@@ -50,6 +50,8 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            width: 100%;
         }
 
         h1, h2, h3, h4, h5 {
@@ -215,6 +217,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 1001;
         }
 
         .logo i {
@@ -270,6 +273,10 @@
             cursor: pointer;
             font-size: 1.8rem;
             color: white;
+            z-index: 1001;
+            background: none;
+            border: none;
+            padding: 5px;
         }
 
         /* ===== Hero Section ===== */
@@ -433,6 +440,7 @@
             font-family: 'Almarai', sans-serif;
             font-weight: 700;
             transition: var(--transition);
+            font-size: 1rem;
         }
 
         .filter-btn.active, .filter-btn:hover {
@@ -609,7 +617,7 @@
             margin-bottom: 0;
         }
 
-        /* ===== Testimonials Section - تم التعديل لتصحيح المشكلتين ===== */
+        /* ===== Testimonials Section ===== */
         .testimonials {
             position: relative;
         }
@@ -1006,7 +1014,7 @@
             transform: translateY(0);
         }
 
-        /* ===== Responsive Design ===== */
+        /* ===== Responsive Design - تحسينات للجوال ===== */
         @media (max-width: 1200px) {
             h1 {
                 font-size: 3.5rem;
@@ -1014,6 +1022,10 @@
             
             h2 {
                 font-size: 2.8rem;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
             }
         }
 
@@ -1039,6 +1051,7 @@
             
             .services-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2rem;
             }
             
             .hamburger {
@@ -1047,16 +1060,18 @@
             
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 0;
                 right: -100%;
-                width: 300px;
-                height: calc(100vh - 80px);
-                background: var(--card-bg);
+                width: 100%;
+                height: 100vh;
+                background: rgba(10, 10, 10, 0.98);
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                justify-content: center;
                 padding: 3rem 2rem;
                 transition: var(--transition);
-                border-left: 1px solid var(--card-border);
+                z-index: 999;
+                margin: 0;
             }
             
             .nav-links.active {
@@ -1064,18 +1079,30 @@
             }
             
             .nav-links li {
-                margin-bottom: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .nav-links a {
+                font-size: 1.4rem;
+                padding: 0.8rem 0;
             }
             
             .testimonial-item {
                 padding: 2.5rem;
                 margin: 1.5rem;
                 min-height: auto;
-                transform: none !important;
             }
             
-            .testimonial-item:hover {
-                transform: none !important;
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
             }
         }
 
@@ -1094,15 +1121,36 @@
             
             .hero-btns {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                gap: 1rem;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
             }
             
             .portfolio-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .portfolio-item {
+                height: 350px;
             }
             
             .about-stats {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+            
+            .stat {
+                padding: 1.5rem 1rem;
+            }
+            
+            .stat h4 {
+                font-size: 2.2rem;
             }
             
             .testimonial-item {
@@ -1120,6 +1168,7 @@
             .testimonial-item p {
                 font-size: 1.1rem;
                 line-height: 1.8;
+                text-align: right;
             }
             
             .modal-img {
@@ -1136,6 +1185,49 @@
                 height: 70px;
                 margin-left: 1.5rem;
             }
+            
+            .contact-form input,
+            .contact-form textarea {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            
+            .contact-form .btn {
+                width: 100%;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .filter-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .portfolio-filter {
+                gap: 0.7rem;
+                margin-bottom: 3rem;
+            }
+            
+            .hero {
+                min-height: 90vh;
+                padding-top: 70px;
+            }
+            
+            .section-header {
+                margin-bottom: 3rem;
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1151,20 +1243,21 @@
                 font-size: 1.8rem;
             }
             
+            h3 {
+                font-size: 1.6rem;
+            }
+            
             .testimonials .section-header h2:after {
                 width: 120px;
             }
             
             .btn {
-                padding: 0.8rem 1.8rem;
+                padding: 0.9rem 1.8rem;
                 font-size: 1rem;
+                width: 100%;
             }
             
             .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
                 grid-template-columns: 1fr;
             }
             
@@ -1181,6 +1274,13 @@
             
             .service-icon i {
                 font-size: 2rem;
+            }
+            
+            .service-icon:after {
+                width: 100px;
+                height: 100px;
+                top: -10px;
+                right: -10px;
             }
             
             .testimonial-item {
@@ -1219,6 +1319,267 @@
             .client-details p {
                 font-size: 0.9rem;
             }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 1.5rem;
+            }
+            
+            .contact-icon {
+                margin-left: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .social-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat {
+                padding: 1.5rem;
+            }
+            
+            .portfolio-item {
+                height: 300px;
+            }
+            
+            .portfolio-overlay {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .logo i {
+                font-size: 1.6rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .hero-content {
+                padding-top: 2rem;
+            }
+            
+            .footer-logo {
+                font-size: 2rem;
+            }
+            
+            .copyright {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 0;
+            }
+            
+            .modal-info {
+                padding: 1.5rem;
+            }
+            
+            .modal-img {
+                height: 250px;
+            }
+            
+            .modal-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                padding-top: 60px;
+                min-height: 85vh;
+            }
+            
+            .portfolio-item {
+                height: 250px;
+            }
+            
+            .service-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .testimonial-item {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+            
+            .footer-content {
+                gap: 1.5rem;
+            }
+            
+            .footer-links h4 {
+                font-size: 1.3rem;
+                margin-bottom: 1rem;
+            }
+            
+            .footer-links li {
+                margin-bottom: 0.7rem;
+            }
+            
+            .newsletter-form input {
+                padding: 0.8rem;
+            }
+            
+            .newsletter-form button {
+                padding: 0 1rem;
+            }
+            
+            .copyright {
+                padding-top: 2rem;
+            }
+            
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.9rem;
+                font-size: 0.95rem;
+            }
+            
+            .filter-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .portfolio-filter {
+                gap: 0.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links li {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        /* تحسينات خاصة للتفاعل باللمس */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover {
+                transform: none;
+            }
+            
+            .portfolio-item:hover {
+                transform: none;
+            }
+            
+            .portfolio-item:hover img {
+                transform: none;
+            }
+            
+            .portfolio-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 100%);
+            }
+            
+            .service-card:hover {
+                transform: none;
+            }
+            
+            .service-card:hover .service-icon {
+                transform: none;
+            }
+            
+            .testimonial-item:hover {
+                transform: none;
+            }
+            
+            .social-icon:hover {
+                transform: none;
+            }
+            
+            .stat:hover {
+                transform: none;
+            }
+            
+            .about-img:hover {
+                transform: none;
+            }
+            
+            .about-img:hover img {
+                transform: none;
+            }
+            
+            /* تحسينات للتفاعل باللمس */
+            .btn:active {
+                transform: scale(0.98);
+            }
+            
+            .filter-btn:active {
+                background: var(--gradient);
+                color: white;
+            }
+        }
+
+        /* تحسينات لأجهزة iPad والأجهزة اللوحية */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .about-content {
+                gap: 3rem;
+            }
+            
+            .contact-content {
+                gap: 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.2rem;
+            }
         }
     </style>
 </head>
@@ -1228,9 +1589,9 @@
         <div class="container">
             <nav class="navbar">
                 <a href="#home" class="logo"><i class="fas fa-camera"></i> أحمد<span>محمد</span></a>
-                <div class="hamburger" id="hamburger">
+                <button class="hamburger" id="hamburger" aria-label="فتح القائمة">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
                 <ul class="nav-links" id="nav-links">
                     <li><a href="#home" class="active">الرئيسية</a></li>
                     <li><a href="#about">نبذة عني</a></li>
@@ -1361,7 +1722,7 @@
         </div>
     </section>
 
-    <!-- Services Section - تم التصحيح -->
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
@@ -1415,7 +1776,7 @@
         </div>
     </section>
 
-    <!-- Testimonials Section - تم التصحيح -->
+    <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header">
@@ -1590,7 +1951,7 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        // Mobile Navigation Toggle
+        // Mobile Navigation Toggle - محسّن للجوال
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('nav-links');
         
@@ -1599,6 +1960,9 @@
             hamburger.innerHTML = navLinks.classList.contains('active') 
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = navLinks.classList.contains('active') 
+                ? 'hidden' 
+                : 'auto';
         });
         
         // Close mobile menu when clicking on a link
@@ -1606,7 +1970,17 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
                 hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
             });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                document.body.style.overflow = 'auto';
+            }
         });
         
         // Header scroll effect
@@ -1620,7 +1994,7 @@
             
             // Update active nav link based on scroll position
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-links a');
+            const navLinksAll = document.querySelectorAll('.nav-links a');
             
             let current = '';
             sections.forEach(section => {
@@ -1631,7 +2005,7 @@
                 }
             });
             
-            navLinks.forEach(link => {
+            navLinksAll.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
@@ -1639,7 +2013,7 @@
             });
         });
         
-        // Portfolio Filtering - FIXED VERSION
+        // Portfolio Filtering
         const filterButtons = document.querySelectorAll('.filter-btn');
         const portfolioItems = document.querySelectorAll('.portfolio-item');
         
@@ -1703,7 +2077,7 @@
             }
         });
         
-        // Initialize Swiper Testimonial Slider - مع إعدادات محسنة
+        // Initialize Swiper Testimonial Slider - مع إعدادات محسنة للجوال
         const swiper = new Swiper('.testimonials-slider', {
             loop: true,
             autoplay: {
@@ -1718,6 +2092,7 @@
             effect: 'slide',
             speed: 800,
             grabCursor: true,
+            spaceBetween: 20,
             breakpoints: {
                 320: {
                     slidesPerView: 1,
@@ -1725,20 +2100,20 @@
                 },
                 640: {
                     slidesPerView: 1,
-                    spaceBetween: 20,
+                    spaceBetween: 15,
                 },
                 768: {
                     slidesPerView: 1,
-                    spaceBetween: 30,
+                    spaceBetween: 20,
                 },
                 1024: {
                     slidesPerView: 1,
-                    spaceBetween: 40,
+                    spaceBetween: 30,
                 },
             },
         });
         
-        // Contact Form Submission
+        // Contact Form Submission - محسّن للجوال
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -1772,29 +2147,30 @@
             }, 1500);
         });
         
-        // Newsletter Form Submission
+        // Newsletter Form Submission - محسّن للجوال
         const newsletterForm = document.querySelector('.newsletter-form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('input[type="email"]').value;
-            const button = newsletterForm.querySelector('button');
-            const originalButtonHTML = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-            
-            setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check"></i>';
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = newsletterForm.querySelector('input[type="email"]').value;
+                const button = newsletterForm.querySelector('button');
+                const originalButtonHTML = button.innerHTML;
+                
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                
                 setTimeout(() => {
-                    button.innerHTML = originalButtonHTML;
-                    newsletterForm.reset();
-                    // Show a subtle notification (could be enhanced with a toast)
-                    alert(`شكراً لاشتراكك في النشرة البريدية!
-سيصلك آخر أخباري وعروضي على ${email}`);
+                    button.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        button.innerHTML = originalButtonHTML;
+                        newsletterForm.reset();
+                        // Show a subtle notification
+                        alert(`شكراً لاشتراكك في النشرة البريدية!\nسيصلك آخر أخباري وعروضي على ${email}`);
+                    }, 1000);
                 }, 1000);
-            }, 1000);
-        });
+            });
+        }
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links - محسّن للجوال
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1804,6 +2180,13 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = 'auto';
+                    }
+                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
@@ -1812,74 +2195,28 @@
             });
         });
         
-        // FIXED: Fade-in animation on scroll - Simplified version
-        const fadeElements = document.querySelectorAll('.service-card, .portfolio-item, .stat');
+        // تحسينات للجوال: إضافة touch events للتفاعل مع اللمس
+        document.addEventListener('touchstart', function() {}, {passive: true});
         
-        // First, make sure all elements are visible initially
-        fadeElements.forEach(el => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        });
-        
-        // Then add the fade-in class for the animation
-        setTimeout(() => {
-            fadeElements.forEach(el => {
-                el.classList.add('fade-in');
-                el.classList.add('visible');
-            });
-        }, 100);
-        
-        // Simple scroll-based animation without IntersectionObserver issues
-        const simpleFadeOnScroll = () => {
-            fadeElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const isVisible = (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) * 1.2 &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-                
-                if (isVisible) {
-                    el.classList.add('visible');
-                }
-            });
-        };
-        
-        // Run on load and scroll
-        window.addEventListener('load', () => {
-            simpleFadeOnScroll();
-            // Force show all service cards and portfolio items
-            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
-                el.classList.add('visible');
-                el.style.opacity = '1';
-                el.style.transform = 'translateY(0)';
+        // تحسين أداء الصور على الجوال
+        window.addEventListener('load', function() {
+            // تحميل الصور بعد تحميل الصفحة
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.loading = 'lazy';
             });
         });
         
-        window.addEventListener('scroll', simpleFadeOnScroll);
-        
-        // Ensure images are loaded before showing content
-        window.addEventListener('load', () => {
-            // Make sure all content is visible
-            setTimeout(() => {
-                document.querySelectorAll('.service-card, .portfolio-item, .stat').forEach(el => {
-                    el.classList.add('visible');
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                });
-            }, 500);
-        });
-        
-        // Fallback: If content disappears, this will restore it
-        setInterval(() => {
-            document.querySelectorAll('.service-card, .portfolio-item').forEach(el => {
-                if (el.style.opacity === '0' || getComputedStyle(el).opacity === '0') {
-                    el.style.opacity = '1';
-                    el.classList.add('visible');
-                }
+        // تحسينات للوحة المفاتيح على الجوال
+        const formInputs = document.querySelectorAll('input, textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                // تأخير بسيط لضمان ظهور لوحة المفاتيح بشكل صحيح
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
             });
-        }, 1000);
+        });
     </script>
 </body>
 </html>
