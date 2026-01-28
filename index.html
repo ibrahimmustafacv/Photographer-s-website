@@ -1140,6 +1140,11 @@
                 height: 350px;
             }
             
+            /* إخفاء النص على الصور في الهواتف المحمولة */
+            .portfolio-overlay {
+                display: none !important;
+            }
+            
             .about-stats {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 1rem;
@@ -1355,10 +1360,6 @@
                 height: 300px;
             }
             
-            .portfolio-overlay {
-                padding: 1.5rem;
-            }
-            
             .logo {
                 font-size: 1.8rem;
             }
@@ -1515,9 +1516,10 @@
                 transform: none;
             }
             
+            /* إخفاء النص على الصور في الأجهزة التي تعمل باللمس */
             .portfolio-overlay {
-                opacity: 1;
-                background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.3) 100%);
+                opacity: 0;
+                display: none;
             }
             
             .service-card:hover {
